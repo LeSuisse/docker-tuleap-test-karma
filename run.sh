@@ -39,6 +39,13 @@ else
     exit 1;
 fi
 
+# Build rpm
+plugin_base=$BASE_PATH/$path/../../..
+if [ -f $plugin_base/Makefile ]; then
+    make -C $BASE_PATH less
+    make -C $plugin_base RPM_TMP=$output_dir/packages
+fi
+
 if [ -n "$output_dir" ]; then
     mkdir -p $output_dir
     mv $BASE_PATH/$path/$TEST_REPORT $output_dir/
