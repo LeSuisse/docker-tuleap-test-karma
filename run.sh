@@ -41,7 +41,7 @@ fi
 
 # Build rpm
 plugin_base=$BASE_PATH/$path/../../..
-if [ -f $plugin_base/Makefile ]; then
+if [ -f $plugin_base/Makefile -a -f $plugin_base/tuleap-plugin-testing-backend.spec ]; then
     make -C $BASE_PATH less
     make -C $plugin_base RPM_TMP=$output_dir/packages
 fi
