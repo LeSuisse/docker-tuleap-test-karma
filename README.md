@@ -17,3 +17,9 @@ that can be found in `PathToFolderContainingGruntFile`
 Usage:
 
     $ docker run --rm=true -v $PWD:/tuleap enalean/tuleap-test-karma --path PathToFolderContainingGruntFile --output-dir /someFolderToPutReportIn
+
+## Build packages
+
+It can also build rpms, for that, specify the .spec filename:
+
+    $ docker run --rm=true -v $PWD:/tuleap enalean/tuleap-test-karma --path PathToFolderContainingGruntFile --output-dir /someFolderToPutReportIn --build mysuperspecfile.spec
