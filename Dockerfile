@@ -1,17 +1,10 @@
 FROM ubuntu:14.04
 
-RUN apt-get update
-RUN apt-get install -y nodejs
-RUN apt-get install -y npm
-RUN apt-get install -y git
-RUN apt-get install -y libfontconfig
-RUN apt-get install -y rpm
+RUN apt-get update && \
+    apt-get install -y nodejs npm git libfontconfig rpm
 
 ## Install base node modules
-RUN npm install -g grunt-cli
-RUN npm install -g bower
-RUN npm install -g less
-RUN npm install -g recess
+RUN npm install -g grunt-cli bower less recess bless
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
