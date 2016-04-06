@@ -1,14 +1,13 @@
-FROM ubuntu:16.04
+FROM alpine:3.3
 
-RUN apt-get update && \
-    apt-get install -y nodejs npm git libfontconfig rpm
+RUN echo '@testing http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
+
+RUN apk add --no-cache bash nodejs git rpm@testing
 
 ## Install base node modules
 RUN npm install -g grunt-cli bower less recess bless
 
-RUN ln -s /usr/bin/nodejs /usr/bin/node
-
-ADD run.sh /run.sh
+COPY run.sh /run.sh
 
 ENTRYPOINT ["/run.sh"]
 VOLUME ["/tuleap"]
